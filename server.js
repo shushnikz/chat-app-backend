@@ -24,6 +24,10 @@ const io = require('socket.io')(server, {
     }
 })
 
+app.get('/', (req, res) => {
+    res.json("This is chat app")
+})
+
 //to get the rooms 
 app.get('/rooms', (req, res) => {
     res.json(rooms)
