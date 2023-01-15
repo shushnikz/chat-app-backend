@@ -1,7 +1,13 @@
-const mongoose = require('mongoose');
-require('dotenv').config();
+const mongoose = require("mongoose")
+dbConnect()
+async function dbConnect() {
+    try {
+        mongoose.set('strictQuery', true);
+        await mongoose.connect('mongodb+srv://Chat-app-user:Shush129@cluster0.4ismyhv.mongodb.net/chat-app', { useNewUrlParser: true })
+        console.log("Mongodb connected successfully")
+    } catch (error) {
+        console.log("Mongodb connection fail")
+    }
+}
 
-mongoose.set('strictQuery', false);
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PW}@cluster0.4ismyhv.mongodb.net/chat-app`, () => {
-    console.log("DB connected")
-})
+module.exports = mongoose

@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/users', userRoutes)
-require('./connection')
+const db = require("./connection.js")
 
 
 const server = require('http').createServer(app);
